@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Validation</h1>
+    <form id="loginForm" onsubmit="return validateForm()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <span id="usernameError" class="error"></span>
+        <br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <span id="passwordError" class="error"></span>
+        <br>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const usernameError = document.getElementById("usernameError");
+            const passwordError = document.getElementById("passwordError");
+            let isValid = true;
+
+            
+            usernameError.textContent = "";
+            passwordError.textContent = "";
+
+            
+            if (username.trim() === "") {
+                usernameError.textContent = "Username is required.";
+                isValid = false;
+            }
+
+            if (password.trim() === "") {
+                passwordError.textContent = "Password is required.";
+                isValid = false;
+            }
+
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>

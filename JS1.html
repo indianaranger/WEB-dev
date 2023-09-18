@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roll the Dice!</title>
+</head>
+<body>
+    <h1>🎲</h1>
+    <p>Wanna play something?Click below:</p>
+    <button onclick="rollDice()">Roll Dice</button>
+    <p id="result"></p>
+
+    <script>
+        function rollDice() {
+            const outcomes = ["one", "two", "three", "four", "five", "six"];
+            const randomIndex = Math.floor(Math.random() * outcomes.length);
+            const result = outcomes[randomIndex];
+            const resultElement = document.getElementById("result");
+            resultElement.textContent = `You rolled a ${result}!`;
+        }
+    </script>
+</body>
+</html>
